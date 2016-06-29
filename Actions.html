@@ -1,0 +1,339 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>2.1.Actions · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.1.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Reducers.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    1.Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    [2.Redux基礎]
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="Actions.html">
+            
+                <a href="Actions.html">
+            
+                    
+                    2.1.Actions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="Reducers.html">
+            
+                <a href="Reducers.html">
+            
+                    
+                    2.2.Reducers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" >
+            
+                <span>
+            
+                    
+                    [2.3.Store]
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" >
+            
+                <span>
+            
+                    
+                    [2.4.Data Flow]
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" >
+            
+                <span>
+            
+                    
+                    [2.5.Usage with React]
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >2.1.Actions</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="actions">Actions</h1>
+<p>&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x767A;&#x751F;&#x6642;&#x306B;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304B;&#x3089;Store&#x3078;&#x60C5;&#x5831;&#x3092;&#x6E21;&#x3059;&#x305F;&#x3081;&#x306E;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;</p>
+<p>&#x5358;&#x7D14;&#x306A;plain javascript object&#x3067;&#x3059;</p>
+<p>&#x30A2;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x8B58;&#x5225;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E; <code>type</code> &#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x306F;&#x5FC5;&#x305A;&#x5FC5;&#x8981;&#x3067;&#x3059;</p>
+<p><code>type</code> &#x4EE5;&#x5916;&#x306E;&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x306F;&#x81EA;&#x7531;&#x306B;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x307E;&#x3059;</p>
+<pre><code class="lang-javascript">{
+  type: <span class="hljs-string">&apos;INCREMENT&apos;</span>
+}
+
+{
+  type: <span class="hljs-string">&apos;ADD_TODO&apos;</span>,
+  text: <span class="hljs-string">&apos;Learn Redux&apos;</span>
+}
+</code></pre>
+<p><code>store.dispatch()</code> &#x3067; Store&#x3078;&#x6E21;&#x3057;&#x307E;&#x3059;</p>
+<pre><code class="lang-javascript">store.dispatch({
+  type: <span class="hljs-string">&apos;INCREMENT&apos;</span>
+})
+</code></pre>
+<p>&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x5229;&#x7528;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;Function&#x3092;&#x4F5C;&#x3063;&#x3066;&#x304A;&#x304F;&#x3068;&#x826F;&#x3044;&#x3088;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> ADD_TODO = (text) =&gt; ({
+  type: <span class="hljs-string">&apos;ADD_TODO&apos;</span>,
+  text
+})
+
+<span class="hljs-keyword">import</span> { ADD_TODO } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./actions&apos;</span>
+
+...
+store.dispatch(ADD_TODO(<span class="hljs-string">&apos;Learn Redux&apos;</span>))
+...
+</code></pre>
+<p><code>dispatch</code> &#x3059;&#x308B;&#x3068;Store&#x306E;Reducer&#x306B;Action&#x3092;&#x6E21;&#x3057;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="Reducers.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 2.2.Reducers">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.1.Actions","level":"1.2.1","depth":2,"next":{"title":"2.2.Reducers","level":"1.2.2","depth":2,"path":"Reducers.md","ref":"Reducers.md","articles":[]},"previous":{"title":"[2.Redux基礎]","level":"1.2","depth":1,"ref":"","articles":[{"title":"2.1.Actions","level":"1.2.1","depth":2,"path":"Actions.md","ref":"Actions.md","articles":[]},{"title":"2.2.Reducers","level":"1.2.2","depth":2,"path":"Reducers.md","ref":"Reducers.md","articles":[]},{"title":"[2.3.Store]","level":"1.2.3","depth":2,"ref":"","articles":[]},{"title":"[2.4.Data Flow]","level":"1.2.4","depth":2,"ref":"","articles":[]},{"title":"[2.5.Usage with React]","level":"1.2.5","depth":2,"ref":"","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Actions.md","mtime":"2016-06-29T16:36:18.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-06-29T16:59:42.042Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
