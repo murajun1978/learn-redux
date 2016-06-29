@@ -2,6 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 
+const increment = () => ({
+  type: 'INCREMENT'
+})
+
+const decrement = () => ({
+  type: 'DECREMENT'
+})
+
 const counter = (state = 0, action) => {
   switch (action.type) {
     case 'INCREMENT':
@@ -32,14 +40,10 @@ const render = () => {
     <Counter
       value={store.getState()}
       onIncrement={() =>
-        store.dispatch({
-          type: 'INCREMENT'
-        })
+        store.dispatch(increment())
       }
       onDecrement={() =>
-        store.dispatch({
-          type: 'DECREMENT'
-        })
+        store.dispatch(decrement())
       }
     />,
     document.querySelector('#app')
